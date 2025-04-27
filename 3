@@ -1,0 +1,8 @@
+with open('input.txt', 'r', encoding = 'utf-8') as f:
+    a = f.readlines()
+first_letters = [line.strip()[0] for line in a if line.strip()]
+result = ''.join(first_letters)
+
+with open('output.txt', 'w', encoding = 'utf-8') as file:
+    file.write(result)
+    
