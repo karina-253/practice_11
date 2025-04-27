@@ -1,0 +1,17 @@
+try:
+    with open('input.txt', 'r', encoding = 'utf-8') as f:
+        line_1 = f.readline().strip()
+        try:
+            N = int(line_1)
+        except ValueError:
+            result = 'ERROR'
+        lines = len(f.readlines())
+        if N == lines:
+            result ='YES'
+        else:
+            result = 'NO'
+except Exception as e:
+    result = str(e)
+with open('output.txt', 'w', encoding = 'utf-8') as file:
+    file.write(result)
+    
