@@ -1,0 +1,12 @@
+try:
+    with open('input.txt', 'r') as f:
+        a, b, c = list(map(int, f.read().split()))
+        result = (a / b) + c
+except ValueError:
+    result = 'data error'
+except ZeroDivisionError:
+    result = 'division by 0'
+
+with open('output.txt', 'w') as file:
+    file.write(str(result))
+    
