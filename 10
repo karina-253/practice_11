@@ -1,1 +1,23 @@
+def day_of_year(date):
+    d, m = map(int, date.split('.'))
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return sum(days_in_month[:m - 1]) + d
 
+with open('input.txt', 'r') as f:
+    lines = f.read().splitlines()
+
+current_date = lines[0]
+n = int(lines[1])
+cells = lines[2:]
+current_day = day_of_year(current_date)
+
+result = []
+for line in cells:
+    number, date = line.split()
+    day_1 = day_of_year(date)
+    if (current_day - day_1) > 3:
+        result.append(number)
+
+with open('output.txt', 'w') as file:
+    for a in result:
+        file.write(a + '\n')
